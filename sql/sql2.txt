@@ -1,0 +1,17 @@
+
+
+CREATE TABLE faqstore (
+    faq_id        NUMBER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    question      CLOB NOT NULL,
+    answer        CLOB,
+    chunk_text    CLOB,
+    embedding     VECTOR(384, FLOAT32)
+) TABLESPACE vector_tbs;
+
+
+SELECT faq_id, question, answer
+FROM faqstore;
+
+SELECT faq_id, embedding
+FROM faqstore
+WHERE ROWNUM <= 5;

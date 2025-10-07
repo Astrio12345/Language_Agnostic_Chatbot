@@ -1,0 +1,25 @@
+
+--deletion command 
+DROP TABLE documents;
+--deletion command
+DELETE FROM documents;
+COMMIT;
+
+CREATE TABLESPACE vector_tbs 
+
+CREATE TABLE documents (
+    file_id      VARCHAR2(255),
+    chunk_index  NUMBER,
+    chunk_text   CLOB,
+    embedding    VECTOR(384, FLOAT32)
+) TABLESPACE vector_tbs;
+
+
+
+
+SELECT file_id, chunk_index, chunk_text, embedding
+FROM documents;
+
+SELECT owner, table_name
+FROM all_tables
+WHERE table_name = 'DOCUMENTS';
